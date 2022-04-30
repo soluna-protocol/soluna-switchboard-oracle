@@ -1,0 +1,79 @@
+{
+  "tasks": [
+    {
+      "splTokenParseTask": {
+        "tokenAccountAddress": "EDLcx5J9aBkA6a7V5aQLqb8nnBByNhhNn8Qr9QksHobc"
+      }
+    },
+    {
+      "jsonParseTask": {
+        "path": "$.amount"
+      }
+    },
+    {
+      "divideTask": {
+        "job": {
+          "tasks": [
+            {
+              "splTokenParseTask": {
+                "mintAddress": "CGczF9uYdSVXmSr9swMafhF1ktHsi6ygcgTHWL71XNZ9"
+              }
+            },
+            {
+              "jsonParseTask": {
+                "path": "$.supply"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "divideTask": {
+        "job": {
+          "tasks": [
+            {
+              "lpExchangeRateTask": {
+                "saberPoolAddress": "KysFMBBoavfov2tLpvefWW6tPFt6rAeZWDJVy1mMQae"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "divideTask": {
+        "job": {
+          "tasks": [
+            {
+              "httpTask": {
+                "url": "https://api.kraken.com/0/public/Ticker?pair=USTUSD"
+              }
+            },
+            {
+              "medianTask": {
+                "tasks": [
+                  {
+                    "jsonParseTask": {
+                      "path": "$.result.USTUSD.a[0]"
+                    }
+                  },
+                  {
+                    "jsonParseTask": {
+                      "path": "$.result.USTUSD.b[0]"
+                    }
+                  },
+                  {
+                    "jsonParseTask": {
+                      "path": "$.result.USTUSD.c[0]"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

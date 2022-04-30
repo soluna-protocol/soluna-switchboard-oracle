@@ -1,0 +1,17 @@
+{
+  "tasks": [
+    {
+      "websocketTask": {
+        "url": "wss://ws-feed.pro.coinbase.com",
+        "subscription": "{\"type\":\"subscribe\",\"product_ids\":[\"UST-USD\"],\"channels\":[\"ticker\",{\"name\":\"ticker\",\"product_ids\":[\"UST-USD\"]}]}",
+        "maxDataAgeSeconds": 15,
+        "filter": "$[?(@.type == 'ticker' && @.product_id == 'UST-USD')]"
+      }
+    },
+    {
+      "jsonParseTask": {
+        "path": "$.price"
+      }
+    }
+  ]
+}

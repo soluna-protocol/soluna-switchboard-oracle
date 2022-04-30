@@ -1,0 +1,10 @@
+{
+  "tasks": [
+    {
+      "jupiterSwapTask": {
+        "inTokenAddress": "JAa3gQySiTi8tH3dpkvgztJWHQC1vGXr5m6SQ9LEM55T",
+        "outTokenAddress": "9vMJfxuKxXBoEa7rM12mYLMwTacLMLDJqHozw96WQL8i"
+      }
+    }
+  ]
+}

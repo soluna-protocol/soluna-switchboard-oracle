@@ -1,0 +1,19 @@
+{
+  "name": "@soluna-procotol/soluna-switchboard-oracle",
+  "private": true,
+  "version": "1.0.0",
+  "main": "src/job0.json",
+  "repository": "git@github.com:soluna-protocol/soluna-switchboard-oracle.git",
+  "author": "Kyle Scott <kyscott@umich.edu",
+  "license": "AGPL-3.0",
+  "packageManager": "yarn@3.2.0",
+  "devDependencies": {
+    "@types/prettier": "^2.6.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.4.1",
+    "prettier": "^2.6.2"
+  },
+  "lint-staged": {
+    "*.{md,json,js,yml,yaml}": "prettier --write"
+  }
+}

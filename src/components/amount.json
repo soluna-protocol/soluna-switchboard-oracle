@@ -1,0 +1,14 @@
+{
+  "tasks": [
+    {
+      "splTokenParseTask": {
+        "tokenAccountAddress": "EDLcx5J9aBkA6a7V5aQLqb8nnBByNhhNn8Qr9QksHobc"
+      }
+    },
+    {
+      "jsonParseTask": {
+        "path": "$.amount"
+      }
+    }
+  ]
+}

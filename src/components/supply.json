@@ -1,0 +1,14 @@
+{
+  "tasks": [
+    {
+      "splTokenParseTask": {
+        "mintAddress": "CGczF9uYdSVXmSr9swMafhF1ktHsi6ygcgTHWL71XNZ9"
+      }
+    },
+    {
+      "jsonParseTask": {
+        "path": "$.supply"
+      }
+    }
+  ]
+}

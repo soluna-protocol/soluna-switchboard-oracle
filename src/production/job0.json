@@ -1,0 +1,76 @@
+{
+  "tasks": [
+    {
+      "splTokenParseTask": {
+        "tokenAccountAddress": "EDLcx5J9aBkA6a7V5aQLqb8nnBByNhhNn8Qr9QksHobc"
+      }
+    },
+    {
+      "jsonParseTask": {
+        "path": "$.amount"
+      }
+    },
+    {
+      "divideTask": {
+        "job": {
+          "tasks": [
+            {
+              "splTokenParseTask": {
+                "mintAddress": "CGczF9uYdSVXmSr9swMafhF1ktHsi6ygcgTHWL71XNZ9"
+              }
+            },
+            {
+              "jsonParseTask": {
+                "path": "$.supply"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "divideTask": {
+        "job": {
+          "tasks": [
+            {
+              "httpTask": {
+                "url": "https://quote-api.jup.ag/v1/quote?inputMint=JAa3gQySiTi8tH3dpkvgztJWHQC1vGXr5m6SQ9LEM55T&outputMint=9vMJfxuKxXBoEa7rM12mYLMwTacLMLDJqHozw96WQL8i&amount=1000000&slippage=0.5"
+              }
+            },
+            {
+              "jsonParseTask": {
+                "path": "$.data[0].outAmount"
+              }
+            },
+            {
+              "divideTask": {
+                "scalar": 1000000
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "divideTask": {
+        "job": {
+          "tasks": [
+            {
+              "websocketTask": {
+                "url": "wss://ws-feed.pro.coinbase.com",
+                "subscription": "{\"type\":\"subscribe\",\"product_ids\":[\"UST-USD\"],\"channels\":[\"ticker\",{\"name\":\"ticker\",\"product_ids\":[\"UST-USD\"]}]}",
+                "maxDataAgeSeconds": 15,
+                "filter": "$[?(@.type == 'ticker' && @.product_id == 'UST-USD')]"
+              }
+            },
+            {
+              "jsonParseTask": {
+                "path": "$.price"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

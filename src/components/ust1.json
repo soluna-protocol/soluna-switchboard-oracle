@@ -1,0 +1,30 @@
+{
+  "tasks": [
+    {
+      "httpTask": {
+        "url": "https://api.kraken.com/0/public/Ticker?pair=USTUSD"
+      }
+    },
+    {
+      "medianTask": {
+        "tasks": [
+          {
+            "jsonParseTask": {
+              "path": "$.result.USTUSD.a[0]"
+            }
+          },
+          {
+            "jsonParseTask": {
+              "path": "$.result.USTUSD.b[0]"
+            }
+          },
+          {
+            "jsonParseTask": {
+              "path": "$.result.USTUSD.c[0]"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

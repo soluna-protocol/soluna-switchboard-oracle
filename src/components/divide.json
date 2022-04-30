@@ -1,0 +1,22 @@
+{
+  "tasks": [
+    {
+      "valueTask": {
+        "value": 20.9
+      }
+    },
+    {
+      "divideTask": {
+        "job": {
+          "tasks": [
+            {
+              "valueTask": {
+                "value": 2.09
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
